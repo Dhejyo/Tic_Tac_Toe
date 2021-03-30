@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Tic Tac Toe</title>
 </head>
 
 <body>
@@ -13,73 +13,87 @@
         <h4>Tic Tac Toe</h4>
 
         <table class="list">
-           
+
             <tr>
-                <td><textarea id="item1" class="list--item">1</textarea></td>
-                <td><textarea id="item2"  class="list--item">2</textarea></td>
-                <td><textarea id="item3" class="list--item">3</textarea></td>
+                <td><textarea id="item1" class="list--item"></textarea></td>
+                <td><textarea id="item2" class="list--item"></textarea></td>
+                <td><textarea id="item3" class="list--item"></textarea></td>
             </tr>
             <tr>
-                <td><textarea id="item4" class="list--item">4</textarea></td>
-                <td><textarea id="item5" class="list--item">5</textarea></td>
-                <td><textarea id="item6" class="list--item">6</textarea></td>
+                <td><textarea id="item4" class="list--item"></textarea></td>
+                <td><textarea id="item5" class="list--item"></textarea></td>
+                <td><textarea id="item6" class="list--item"></textarea></td>
             </tr>
             <tr>
-                <td><textarea id="item7" class="list--item">7</textarea></td>
-                <td><textarea id="item8" class="list--item">8</textarea></td>
-                <td><textarea id="item9" class="list--item">9</textarea></td>
+                <td><textarea id="item7" class="list--item"></textarea></td>
+                <td><textarea id="item8" class="list--item"></textarea></td>
+                <td><textarea id="item9" class="list--item"></textarea></td>
             </tr>
-      
+
         </table>
-        <button class="calc">Play</button>
-    </div>
+
+    </div> <button class="calc">Play Again</button>
     <script>
         var wrap = document.getElementById('wrap')
         var expression = 0;
-        var counter=0
+        var counter = 0
         wrap.addEventListener('click', Calculate)
         function Calculate() {
             // Check if it’s the list element, we want the clicks only from them
             if (event.target.classList.contains('list--item')) {
                 console.log('The item was just clicked');
-               // console.log(event.target.innerHTML );
-                
+                // console.log(event.target.innerHTML );
+
             }
-            if(counter%2==0)
-        {
-            event.target.innerHTML='X'
-            counter=counter+1;
-            console.log('Player1 s turn');
-        }
-        else
-        {
-            event.target.innerHTML='O'
-            counter=counter+1;
-            console.log('Player2 s turn');
-        }
-    var txt1=document.querySelector('#item1').innerHTML;
-    var txt2=document.querySelector('#item2').innerHTML;
-    var txt3=document.querySelector('#item3').innerHTML;  
-    var txt4=document.querySelector('#item4').innerHTML;
-    var txt5=document.querySelector('#item5').innerHTML;
-    var txt6=document.querySelector('#item6').innerHTML;  
-    var txt7=document.querySelector('#item7').innerHTML;
-    var txt8=document.querySelector('#item8').innerHTML;
-    var txt9=document.querySelector('#item9').innerHTML;  
-    console.log(txt1+txt2+txt3);   
-    if ( (txt1+txt2+txt3==='XXX') || (txt4+txt5+txt6==='XXX') || (txt7+txt8+txt9==='XXX') || (txt1+txt4+txt7==='XXX') || (txt2+txt5+txt8==='XXX') || (txt3+txt6+txt9==='XXX') || (txt1+txt5+txt9==='XXX') || (txt3+txt5+txt7==='XXX') )
+            if (counter % 2 == 0) {
+                if ((event.target.innerHTML !== 'X') && (event.target.innerHTML !== 'O')) {
+                    event.target.innerHTML = 'X'
+                    counter = counter + 1;
+                    console.log('Player1 s turn');
+                }
+            }
+            else {
+                if ((event.target.innerHTML !== 'X') && (event.target.innerHTML !== 'O')) {
+                    event.target.innerHTML = 'O'
+                    counter = counter + 1;
+                    console.log('Player2 s turn');
+                }
+            }
+            var txt1 = document.querySelector('#item1').innerHTML;
+            var txt2 = document.querySelector('#item2').innerHTML;
+            var txt3 = document.querySelector('#item3').innerHTML;
+            var txt4 = document.querySelector('#item4').innerHTML;
+            var txt5 = document.querySelector('#item5').innerHTML;
+            var txt6 = document.querySelector('#item6').innerHTML;
+            var txt7 = document.querySelector('#item7').innerHTML;
+            var txt8 = document.querySelector('#item8').innerHTML;
+            var txt9 = document.querySelector('#item9').innerHTML;
+            console.log(txt1 + txt2 + txt3);
+            if ((txt1 + txt2 + txt3 === 'XXX') || (txt4 + txt5 + txt6 === 'XXX') || (txt7 + txt8 + txt9 === 'XXX') || (txt1 + txt4 + txt7 === 'XXX') || (txt2 + txt5 + txt8 === 'XXX') || (txt3 + txt6 + txt9 === 'XXX') || (txt1 + txt5 + txt9 === 'XXX') || (txt3 + txt5 + txt7 === 'XXX')) {
+                alert('WINNER - Player 1');
+            }
+            else if ((txt1 + txt2 + txt3 === 'OOO') || (txt4 + txt5 + txt6 === 'OOO') || (txt7 + txt8 + txt9 === 'OOO') || (txt1 + txt4 + txt7 === 'OOO') || (txt2 + txt5 + txt8 === 'OOO') || (txt3 + txt6 + txt9 === 'OOO') || (txt1 + txt5 + txt9 === 'OOO') || (txt3 + txt5 + txt7 === 'OOO')) {
+                alert('WINNER - Player 2');
+            }
+            document.querySelector('.calc').addEventListener('click', Reset_game)
+            function Reset_game() {
+      
 
-    {
-      alert('WINNER - Player 1');
-        }
-     else if ( (txt1+txt2+txt3==='OOO') || (txt4+txt5+txt6==='OOO') || (txt7+txt8+txt9==='OOO') || (txt1+txt4+txt7==='OOO') || (txt2+txt5+txt8==='OOO') || (txt3+txt6+txt9==='OOO') || (txt1+txt5+txt9==='OOO') || (txt3+txt5+txt7==='OOO') )
+                console.log('Reset');
+                document.querySelector('#item1').innerHTML=null;
+            document.querySelector('#item2').innerHTML=null;;
+            document.querySelector('#item3').innerHTML=null;;
+            document.querySelector('#item4').innerHTML=null;;
+            document.querySelector('#item5').innerHTML=null;;
+           document.querySelector('#item6').innerHTML=null;;
+            document.querySelector('#item7').innerHTML=null;;
+            document.querySelector('#item8').innerHTML=null;;
+            document.querySelector('#item9').innerHTML=null;;
 
-    {
-      alert('WINNER - Player 2');
+
+            }
         }
-     
-}  
-  
+
 
     </script>
 </body>
