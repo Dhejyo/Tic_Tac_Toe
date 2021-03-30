@@ -74,6 +74,7 @@
             var txt8 = document.querySelector('#item8').innerHTML;
             var txt9 = document.querySelector('#item9').innerHTML;
             console.log(txt1 + txt2 + txt3);
+            var len=txt1+txt2+txt3+txt4+txt5+txt6+txt7+txt8+txt9;
             if ((txt1 + txt2 + txt3 === 'XXX') || (txt4 + txt5 + txt6 === 'XXX') || (txt7 + txt8 + txt9 === 'XXX') || (txt1 + txt4 + txt7 === 'XXX') || (txt2 + txt5 + txt8 === 'XXX') || (txt3 + txt6 + txt9 === 'XXX') || (txt1 + txt5 + txt9 === 'XXX') || (txt3 + txt5 + txt7 === 'XXX')) {
                 alert('WINNER - Player 1');
                 flag=1;
@@ -81,6 +82,11 @@
             else if ((txt1 + txt2 + txt3 === 'OOO') || (txt4 + txt5 + txt6 === 'OOO') || (txt7 + txt8 + txt9 === 'OOO') || (txt1 + txt4 + txt7 === 'OOO') || (txt2 + txt5 + txt8 === 'OOO') || (txt3 + txt6 + txt9 === 'OOO') || (txt1 + txt5 + txt9 === 'OOO') || (txt3 + txt5 + txt7 === 'OOO')) {
                 alert('WINNER - Player 2');
                 flag=1;
+            }
+            
+            else if (len.length===9)
+            {
+              alert('DRAW');
             }
       
             document.querySelector('.calc').addEventListener('click', Reset_game)
@@ -100,6 +106,7 @@
 
 
             }
+             
         }
 
 
