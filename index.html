@@ -34,10 +34,15 @@
 
     </div> <button class="calc">Play Again</button>
     <script>
-        var wrap = document.getElementById('wrap')
+        var wrap = document.querySelectorAll('.list--item');
         var expression = 0;
-        var counter = 0
-        wrap.addEventListener('click', Calculate)
+        var counter = 0;
+        var flag=0;
+        for(var i=0;i<10;i=i+1)
+        {
+            wrap[i].addEventListener('click', Calculate)
+        }
+        
         function Calculate() {
             // Check if it’s the list element, we want the clicks only from them
             if (event.target.classList.contains('list--item')) {
@@ -71,10 +76,13 @@
             console.log(txt1 + txt2 + txt3);
             if ((txt1 + txt2 + txt3 === 'XXX') || (txt4 + txt5 + txt6 === 'XXX') || (txt7 + txt8 + txt9 === 'XXX') || (txt1 + txt4 + txt7 === 'XXX') || (txt2 + txt5 + txt8 === 'XXX') || (txt3 + txt6 + txt9 === 'XXX') || (txt1 + txt5 + txt9 === 'XXX') || (txt3 + txt5 + txt7 === 'XXX')) {
                 alert('WINNER - Player 1');
+                flag=1;
             }
             else if ((txt1 + txt2 + txt3 === 'OOO') || (txt4 + txt5 + txt6 === 'OOO') || (txt7 + txt8 + txt9 === 'OOO') || (txt1 + txt4 + txt7 === 'OOO') || (txt2 + txt5 + txt8 === 'OOO') || (txt3 + txt6 + txt9 === 'OOO') || (txt1 + txt5 + txt9 === 'OOO') || (txt3 + txt5 + txt7 === 'OOO')) {
                 alert('WINNER - Player 2');
+                flag=1;
             }
+      
             document.querySelector('.calc').addEventListener('click', Reset_game)
             function Reset_game() {
       
